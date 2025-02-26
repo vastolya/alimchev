@@ -4,13 +4,20 @@ interface ButtonProps {
   iconPath?: string;
   type?: "submit" | "reset" | "button" | undefined;
   title?: string;
+  onClick?: (e: React.FormEvent) => void;
 }
 
-const Button = ({ iconPath, title, type = undefined }: ButtonProps) => {
+const Button = ({
+  iconPath,
+  title,
+  type = undefined,
+  onClick,
+}: ButtonProps) => {
   return (
     <button
       type={type}
       className="py-4 flex items-center justify-center gap-2 w-full rounded-lg bg-[#003E75] shadow-md hover:bg-[#0058A0] active:bg-[#002A52]"
+      onClick={onClick}
     >
       {iconPath && (
         <Image src={iconPath} alt={iconPath} width={18} height={18} />

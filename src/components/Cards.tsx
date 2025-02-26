@@ -55,7 +55,7 @@ const Card = ({
 const Cards = () => {
   return (
     <div className="col-span-6 grid grid-cols-6 gap-5">
-      <span className="col-span-2 font-semibold text-base leading-5">
+      <span className="col-span-2 text-base leading-5">
         <p className="pb-2">
           Работаю со спортсменами, взрослыми, детьми от 6 лет, выявляю причины
           болей, устраняю за 1-2 сеанса

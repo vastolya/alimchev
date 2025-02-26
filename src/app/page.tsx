@@ -3,6 +3,7 @@ import Contacts from "@/components/Contacts";
 import CustomForm from "@/components/CustomForm";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Reviews from "@/components/reviews/Reviews";
 
 export default function Home() {
   return (
@@ -10,8 +11,11 @@ export default function Home() {
       <div className="col-span-3" />
       <div className="col-span-6 flex flex-col gap-10">
         <Header />
+
         <Cards />
+
         <Contacts />
+        <Reviews />
         <CustomForm />
         <Footer />
       </div>

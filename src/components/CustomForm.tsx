@@ -15,8 +15,12 @@ const CustomForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Successfully toasted!");
     console.log("Отправка данных:", formData);
+    toast("Спасибо, я с вам свяжусь!", {
+      icon: "🦴",
+      position: "top-center",
+    });
+    setFormData({ email: "", message: "" });
   };
 
   return (
@@ -32,12 +36,12 @@ const CustomForm = () => {
       />
       <div className="col-span-4 col-start-2 flex flex-col gap-4 z-10 pt-10">
         <input
-          type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
           placeholder="Ваш номер телефона или почта"
           className="px-4 py-3 rounded-lg w-full placeholder:text-xs placeholder:text-[#262626] placeholder:opacity-50 focus:outline-none focus:border-[#003E75] focus:ring-2"
+          minLength={5}
           required
         />
         <textarea
@@ -45,12 +49,14 @@ const CustomForm = () => {
           value={formData.message}
           onChange={handleChange}
           className="px-4 py-3 rounded-lg w-full h-32 placeholder:text-xs placeholder:text-[#262626] placeholder:opacity-50 focus:outline-none focus:border-[#003E75] focus:ring-2"
-          placeholder="Ваше сообщение"
+          placeholder="Опишите проблему и время, когда  хотели записаться на приём, или оставьте другую информацию"
+          minLength={5}
           required
         />
+
         <Button type="submit" title="Записаться" />
       </div>
-      <Toaster />
+      <Toaster position="bottom-center" />
     </form>
   );
 };
