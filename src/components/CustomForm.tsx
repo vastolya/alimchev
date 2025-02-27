@@ -60,7 +60,7 @@ const CustomForm = () => {
         />
 
         <Button type="submit" title="Записаться" />
-        <p className="pb-10 text-xs text-white flex items-center justify-center">
+        <p className="pb-10 text-xs text-white flex items-center justify-center [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]">
           Нажимая кнопку “Записаться”, я даю своё согласиена обработку&nbsp;
           <span className="underline">персональных данных</span>
         </p>

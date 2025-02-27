@@ -35,14 +35,14 @@ const Card = ({
   card: { img: string; title: string; subtitle: string };
 }) => {
   return (
-    <div className="shadow-md relative h-40 w-full p-4 bg-[#262626] rounded-lg col-span-2">
+    <div className="group shadow-md relative h-40 w-full p-4 bg-[#262626] rounded-lg col-span-2 overflow-hidden">
       <Image
         src={card.img}
         alt="Background"
         fill
         priority
         sizes="auto"
-        className="object-cover opacity-40 rounded-lg"
+        className="object-cover group-hover:scale-110 opacity-40 rounded-lg transition-all duration-500 ease-in-out "
       />
       <div className="relative z-10 h-full flex flex-col justify-between text-[#f0f8ff] [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]">
         <p className="text-2xl leading-6 font-semibold">{card.title}</p>
