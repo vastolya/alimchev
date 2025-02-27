@@ -14,7 +14,7 @@ const Header = () => {
             height={24}
           ></Image>
         </Link>
-        <Link href="https://t.me/artem_levitan" target="_blank">
+        <Link href="https://t.me/+79050865392" target="_blank">
           <Image src="icons/tg_24.svg" alt="123" width={24} height={24}></Image>
         </Link>
         <Link href="https://vk.com/alim4ev" target="_blank">
