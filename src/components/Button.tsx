@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 interface ButtonProps {
+  title?: string;
   iconPath?: string;
   type?: "submit" | "reset" | "button" | undefined;
-  title?: string;
   onClick?: (e: React.FormEvent) => void;
 }
 

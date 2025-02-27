@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { createRef, RefObject, useState } from "react";
 import Button from "./Button";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+
+export const formRef: RefObject<HTMLFormElement | null> = createRef();
 
 const CustomForm = () => {
   const [formData, setFormData] = useState({ email: "", message: "" });
@@ -15,18 +17,21 @@ const CustomForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Отправка данных:", formData);
+
     toast("Спасибо, я с вам свяжусь!", {
       icon: "🦴",
       position: "top-center",
     });
     setFormData({ email: "", message: "" });
+
+    console.log(formData);
   };
 
   return (
     <form
+      ref={formRef}
       onSubmit={handleSubmit}
-      className="relative col-span-6 grid grid-cols-6 gap-5 h-[21.25rem] w-full"
+      className="relative col-span-6 grid grid-cols-6 gap-5 min-h-[21.25rem] w-full"
     >
       <Image
         src="/img/contact-bg.jpg"
@@ -55,8 +60,11 @@ const CustomForm = () => {
         />
 
         <Button type="submit" title="Записаться" />
+        <p className="pb-10 text-xs text-white flex items-center justify-center">
+          Нажимая кнопку “Записаться”, я даю своё согласиена обработку&nbsp;
+          <span className="underline">персональных данных</span>
+        </p>
       </div>
-      <Toaster position="bottom-center" />
     </form>
   );
 };
