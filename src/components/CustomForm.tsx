@@ -15,16 +15,61 @@ const CustomForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await fetch("/api/send-email", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         email: formData.email,
+  //         message: formData.message,
+  //       }),
+  //     });
+
+  //     const result = await response.json();
+  //     if (result.success) {
+  //       toast("Спасибо, я с вами свяжусь!", {
+  //         icon: "🦴",
+  //         position: "top-center",
+  //       });
+  //       setFormData({ email: "", message: "" });
+  //     } else {
+  //       toast.error("Ошибка при отправке. Попробуйте позже.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Ошибка отправки:", error);
+  //     toast.error("Ошибка при отправке. Попробуйте позже.");
+  //   }
+  // };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    toast("Спасибо, я с вам свяжусь!", {
-      icon: "🦴",
-      position: "top-center",
-    });
-    setFormData({ email: "", message: "" });
+    try {
+      await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-    console.log(formData);
+      toast("Спасибо, я с вами свяжусь!", {
+        icon: "🦴",
+        position: "top-center",
+      });
+      setFormData({ email: "", message: "" });
+    } catch (error) {
+      console.error("Ошибка отправки:", error);
+      toast.error("Ошибка при отправке. Попробуйте позже.");
+    }
   };
 
   return (

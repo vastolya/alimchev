@@ -15,17 +15,17 @@ const Map = () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const map = DG.map("map", {
-          center: [56.04, 92.91], // Координаты Красноярска
+          center: [56.04, 92.91], // Красноярск
           zoom: 10,
           zoomControl: false,
           fullscreenControl: false,
         });
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        DG.marker([56.139856, 92.915676]) // Координаты маркера
+        DG.marker([56.139856, 92.915676]) // Маркер
           .addTo(map)
           .bindPopup(
-            " ​пос. Сухая Балка, Емельяновский район, Дачная улица, дом 5​"
+            "пос. Сухая Балка, Емельяновский район, Дачная улица, дом 5​"
           );
       });
     };
