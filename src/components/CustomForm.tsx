@@ -15,56 +15,31 @@ const CustomForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const response = await fetch("/api/send-email", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         email: formData.email,
-  //         message: formData.message,
-  //       }),
-  //     });
-
-  //     const result = await response.json();
-  //     if (result.success) {
-  //       toast("Спасибо, я с вами свяжусь!", {
-  //         icon: "🦴",
-  //         position: "top-center",
-  //       });
-  //       setFormData({ email: "", message: "" });
-  //     } else {
-  //       toast.error("Ошибка при отправке. Попробуйте позже.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Ошибка отправки:", error);
-  //     toast.error("Ошибка при отправке. Попробуйте позже.");
-  //   }
-  // };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      await fetch("/api/send-email", {
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: formData.email,
-          message: formData.message,
+          email: formData.email.trim(),
+          message: formData.message.trim(),
         }),
       });
 
-      toast("Спасибо, я с вами свяжусь!", {
-        icon: "🦴",
-        position: "top-center",
+      if (!response.ok) {
+        throw new Error(`Ошибка ${response.status}: ${response.statusText}`);
+      }
+
+      await toast.promise(new Promise((resolve) => setTimeout(resolve, 500)), {
+        loading: "Отправка...",
+        success: "Спасибо, я с вами свяжусь! 🦴",
+        error: "Ошибка при отправке. Попробуйте позже.",
       });
+
       setFormData({ email: "", message: "" });
     } catch (error) {
       console.error("Ошибка отправки:", error);
@@ -76,15 +51,15 @@ const CustomForm = () => {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="relative col-span-6 grid grid-cols-6 gap-5 min-h-[21.25rem] w-full"
+      className="px-5 md:px-0 relative md:col-span-6 grid md:grid-cols-6 gap-5 md:min-h-[21.25rem] w-full"
     >
       <Image
         src="/img/contact-bg.jpg"
         alt="contact-bg"
         fill
-        className="object-cover rounded-lg"
+        className="object-cover md:rounded-lg"
       />
-      <div className="col-span-4 col-start-2 flex flex-col gap-4 z-10 pt-10">
+      <div className="md:col-span-4 md:col-start-2 flex flex-col gap-4 z-10 pt-10">
         <input
           name="email"
           value={formData.email}
@@ -105,9 +80,9 @@ const CustomForm = () => {
         />
 
         <Button type="submit" title="Записаться" />
-        <p className="pb-10 text-xs text-white flex items-center justify-center [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]">
-          Нажимая кнопку “Записаться”, я даю своё согласиена обработку&nbsp;
-          <span className="underline">персональных данных</span>
+        <p className="pb-10 text-xs text-white flex text-center items-center justify-center [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]">
+          Нажимая кнопку “Записаться”, я даю своё согласиена обработку
+          персональных данных
         </p>
       </div>
     </form>

@@ -45,19 +45,22 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <div>
+    <div className="">
       <Swiper
-        slidesPerView={3}
         spaceBetween={30}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper w-screen md:w-full "
+        breakpoints={{
+          320: { slidesPerView: 1 }, // Для маленьких экранов (мобильные)
+          1024: { slidesPerView: 3 }, // Для десктопов
+        }}
       >
         {reviews.map((item, index) => (
-          <SwiperSlide key={index} className=" text-base leading-5">
-            <div className="mb-8 mx-auto ">
+          <SwiperSlide key={index} className="text-base leading-5 px-5 md:px-0">
+            <div className="mb-8 mx-auto">
               <div className="pb-2 font-semibold">{item.name}</div>
               <div>{item.message}</div>
             </div>

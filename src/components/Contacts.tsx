@@ -31,22 +31,22 @@ const Contacts = () => {
   };
 
   return (
-    <div className="col-span-6 grid grid-cols-6 gap-5">
-      <div className="col-span-2 col-start-2">
+    <div className="px-5 md:px-0 md:col-span-6 grid md:grid-cols-6 gap-5">
+      <div className="md:col-span-2 md:col-start-2">
         <Button
           iconPath={"icons/call_16.svg"}
           title={"+7-905-086-5392"}
           onClick={(e) => handleCopy(e, "phone")}
         />
       </div>
-      <div className="col-span-2">
+      <div className="md:col-span-2">
         <Button
           iconPath={"icons/mail_18.svg"}
           title={"alimcheva@gmail.ru"}
           onClick={(e) => handleCopy(e, "email")}
         />
       </div>
-      <div className="col-span-6 w-full h-[21.25rem]">
+      <div className="md:col-span-6 w-full h-[21.25rem]">
         <Map />
       </div>
     </div>

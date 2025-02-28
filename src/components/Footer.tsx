@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="col-span-6 flex w-full justify-between pb-10">
+    <footer className="px-5 md:px-0 md:col-span-6 flex w-full items-center justify-between pb-5 md:pb-10">
       <div className="flex gap-2">
         <Link href="https://t.me/+79050865392" target="_blank">
           <Image src="icons/tg_24.svg" alt="123" width={24} height={24}></Image>
@@ -20,7 +20,7 @@ const Footer = () => {
           ></Image>
         </Link>
       </div>
-      <h2 className=" text-2xl font-bold">Артём Алимчев</h2>
+      <h2 className="md:text-2xl text-lg font-bold">Артём Алимчев</h2>
     </footer>
   );
 };

@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="col-span-6 flex w-full justify-between pt-10">
-      <h2 className=" text-2xl font-bold">Артём Алимчев</h2>
+    <header className="px-5 md:px-0 md:col-span-6 md:pt-10 pt-5 justify-between  flex w-full ">
+      <h2 className=" md:text-2xl text-lg font-bold">Артём Алимчев</h2>
       <div className="flex gap-2">
         <Link href="https://wa.me/79654142980" target="_blank">
           <Image

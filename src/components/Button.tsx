@@ -23,7 +23,7 @@ const Button = ({
         <Image src={iconPath} alt={iconPath} width={18} height={18} />
       )}
       <p
-        className={`${iconPath ? "text-xs" : "text-2xl"} ${
+        className={`${iconPath ? "text-xs" : "text-sm md:text-2xl"} ${
           iconPath ? "leading-3" : "leading-6"
         } text-[#F0F8FF] font-semibold  [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]`}
       >

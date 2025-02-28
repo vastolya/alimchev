@@ -16,13 +16,13 @@ const Main = () => {
   };
 
   return (
-    <div className="relative">
-      <h1 className="pb-4 text-[5rem] leading-[5rem] font-bold text-[#003E75]">
+    <div className="relative px-5 md:px-0">
+      <h1 className="text-3xl md:text-[5rem] md:leading-[5rem] pb-2 md:pb-4 font-bold text-[#003E75]">
         Мануальный
         <br />
         терапевт
       </h1>
-      <h3 className="pb-[7.5rem] text-[2rem] leading-[2rem] text-[#262626] font-bold">
+      <h3 className="text-2xl pb-16 md:pb-[7.5rem] md:text-[2rem] md:leading-[2rem] text-[#262626] font-bold">
         Красноярск
       </h3>
       <Button
@@ -38,7 +38,7 @@ const Main = () => {
         alt="main"
         width={300}
         height={390}
-        className="absolute top-[-3rem] right-[5rem] -z-10"
+        className="absolute md:min-w-80 w-48 -top-5 md:top-[-3rem] right-[5%] md:right-[1rem] -z-10"
       />
     </div>
   );
