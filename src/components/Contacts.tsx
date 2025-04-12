@@ -31,8 +31,14 @@ const Contacts = () => {
   };
 
   return (
-    <div className="px-5 md:px-0 md:col-span-6 grid md:grid-cols-6 gap-5">
-      <div className="md:col-span-2 md:col-start-2">
+    <div className="px-5 md:px-0 md:col-span-6 grid md:grid-cols-6 gap-10">
+      <div className="col-span-2 md:col-span-6 w-full h-[21.25rem]">
+        <Map />
+      </div>
+      <h1 className="col-span-2">
+        Принимаю по адресу: <br /> пос. Сухая Балка, ул. Дачная, 5
+      </h1>
+      <div className="md:col-span-2 md:col-start-3">
         <Button
           iconPath={"icons/call_16.svg"}
           title={"+7-905-086-5392"}
@@ -45,9 +51,6 @@ const Contacts = () => {
           title={"alimcheva@gmail.ru"}
           onClick={(e) => handleCopy(e, "email")}
         />
-      </div>
-      <div className="md:col-span-6 w-full h-[21.25rem]">
-        <Map />
       </div>
     </div>
   );

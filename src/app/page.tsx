@@ -1,9 +1,12 @@
 import Cards from "@/components/Cards";
 import Contacts from "@/components/Contacts";
 import CustomForm from "@/components/CustomForm";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Healline from "@/components/healline/Healline";
 import Main from "@/components/Main";
+
 import Reviews from "@/components/reviews/Reviews";
 import { Toaster } from "react-hot-toast";
 
@@ -16,9 +19,13 @@ export default function Home() {
         <Header />
         <Main />
         <Cards />
-        <Contacts />
+
+        <Healline />
+        <FAQ />
         <Reviews />
+        <Contacts />
         <CustomForm />
+
         <Footer />
       </div>
       <div className="hidden md:flex col-span-3" />

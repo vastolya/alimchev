@@ -51,15 +51,19 @@ const CustomForm = () => {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="px-5 md:px-0 relative md:col-span-6 grid md:grid-cols-6 gap-5 md:min-h-[21.25rem] w-full"
+      className="px-5 md:px-0 relative md:col-span-6 grid md:grid-cols-6 gap-5 md:min-h-[21.25rem] w-full shadow-lg bg-black md:rounded-lg"
     >
       <Image
         src="/img/contact-bg.jpg"
         alt="contact-bg"
         fill
-        className="object-cover md:rounded-lg"
+        className="object-cover md:rounded-lg opacity-55"
       />
-      <div className="md:col-span-4 md:col-start-2 flex flex-col gap-4 z-10 pt-10">
+
+      <div className="md:col-span-4 md:col-start-2 flex flex-col gap-10 z-10 pt-10 px-6">
+        <h1 className="text-2xl text-center text-[#F0F8FF] font-bold [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]">
+          Костоправ в Красноярске
+        </h1>
         <input
           name="email"
           value={formData.email}

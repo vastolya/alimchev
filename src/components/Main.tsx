@@ -16,30 +16,37 @@ const Main = () => {
   };
 
   return (
-    <div className="relative px-5 md:px-0">
-      <h1 className="text-3xl md:text-[5rem] md:leading-[5rem] pb-2 md:pb-4 font-bold text-[#003E75]">
-        Мануальный
-        <br />
-        терапевт
-      </h1>
-      <h3 className="text-2xl pb-16 md:pb-[7.5rem] md:text-[2rem] md:leading-[2rem] text-[#262626] font-bold">
-        Красноярск
-      </h3>
-      <Button
-        title="Записаться на бесплатную консультацию"
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onClick={(e: any) => {
-          e.preventDefault();
-          scrollToForm();
-        }}
-      />
-      <Image
-        src="/img/main.png"
-        alt="main"
-        width={300}
-        height={390}
-        className="absolute md:min-w-80 w-48 -top-5 md:top-[-3rem] right-[5%] md:right-[1rem] -z-10"
-      />
+    <div className="relative px-5 md:px-0 md:col-span-6 grid md:grid-cols-6 gap-x-5 gap-y-0">
+      <div className="col-span-6 2xl:col-span-4">
+        <h1 className="text-3xl font-bold text-[#003E75] py-4 md:py-16">
+          Артём Алимчев специалист
+          <br /> по восстановительным техникам
+          <br /> в Красноярске
+        </h1>
+        <h3 className="text-2xl text-[#262626] pb-4 md:pb-16">
+          Устраняю причину боли, последствия <br />
+          травм, хронические боли в спине <br /> и конечностях за 2 сеанса
+        </h3>
+      </div>
+      <div className="md:col-start-5 md:col-span-2 pb-4 md:pb-0 md:hidden 2xl:flex md:items-end">
+        <Image
+          src="/img/main.png"
+          alt="main"
+          width={300}
+          height={390}
+          className=" hidden md:flex  md:w-full -z-10 md:pr-7"
+        />
+      </div>
+      <div className="col-span-6">
+        <Button
+          title="Записаться на бесплатную консультацию"
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          onClick={(e: any) => {
+            e.preventDefault();
+            scrollToForm();
+          }}
+        />
+      </div>
     </div>
   );
 };

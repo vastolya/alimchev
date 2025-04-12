@@ -1,0 +1,25 @@
+.ant-timeline-item-content {
+  font-family: "Montserrat";
+  color: #262626;
+  font-size: 14px;
+  /* padding-right: 140px; */
+}
+
+.ant-timeline-item-label {
+  font-family: "Montserrat";
+  color: #262626;
+  font-size: 16px;
+  font-weight: 600;
+  padding-right: 10px;
+}
+.custom-timeline .ant-timeline-item-head {
+  top: 7px; /* сдвигаешь точку вниз */
+}
+
+.custom-timeline .ant-timeline-item-tail {
+  top: 15px; /* сдвигаешь линию вниз на ту же величину */
+}
+
+.ant-timeline-item-head {
+  background-color: transparent !important;
+}
