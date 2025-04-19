@@ -1,31 +1,6 @@
 import React from "react";
-import Image from "next/image";
-
-const cards = [
-  {
-    img: "/img/card-back.jpg",
-    title: "Позвоночник",
-    subtitle: "Грыжи, протрузии, остеохондроз, защемления",
-  },
-  {
-    img: "/img/card-hand.jpg",
-    title: "Суставы и конечности",
-    subtitle:
-      "Боли в руках, ногах, онемение пальцев, триггерные точки, спазмы, судороги",
-  },
-  {
-    img: "/img/card-soul.jpg",
-    title: "Неврология",
-    subtitle:
-      "Ишиас (седалищный нерв), головокружения, мигрени, невралгия тройничного нерва",
-  },
-  {
-    img: "/img/card-belly.jpg",
-    title: "Внутренние органы",
-    subtitle:
-      "Дисфункции желудка, поджелудочной железы, мочевого пузыря, запоры, диарея",
-  },
-];
+import Link from "next/link";
+import { data } from "../../../public/data";
 
 const techniques = [
   "Лечебный массаж шейно-воротниковой зоны, спины, конечностей",
@@ -38,23 +13,34 @@ const techniques = [
 const Card = ({
   card,
 }: {
-  card: { img: string; title: string; subtitle: string };
+  card: {
+    slug: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    conditions: string[];
+    conditionTitle?: string;
+    how_to_treat: string[];
+  };
 }) => {
   return (
-    <div className="min-h-[276px] group relative col-span-3 p-6 bg-[#262626] rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-      <Image
-        src={card.img}
-        alt="Background"
-        fill
-        priority
-        sizes="auto"
-        className="object-cover group-hover:scale-110 opacity-40 rounded-lg transition-all duration-500 ease-in-out "
-      />
+    <Link
+      href={`/cards/${card.slug}`}
+      className="min-h-[12rem] group relative col-span-2 p-6 bg-[#262626] rounded-lg shadow-lg overflow-hidden h-full flex flex-col"
+    >
+      {/* <Image
+          src={card.img}
+          alt="Background"
+          fill
+          priority
+          sizes="auto"
+          className="object-cover group-hover:scale-110 opacity-40 rounded-lg transition-all duration-500 ease-in-out "
+        /> */}
       <div className="relative z-10 h-full flex flex-col justify-between text-[#f0f8ff] [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]">
         <p className="text-2xl leading-6 font-semibold">{card.title}</p>
         <p className="text-base font-medium">{card.subtitle}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -85,10 +71,6 @@ const Cards = () => {
         </p>
       </div>
 
-      {cards.map((item) => (
-        <Card card={item} key={item.title} />
-      ))}
-
       <div className="col-span-3 p-6 bg-white/80 backdrop-blur-md border border-white/50 rounded-2xl shadow-md h-full flex flex-col justify-between text-[#262626] space-y-4">
         <h2 className="text-xl font-bold">
           С помощью чего достигаю результата
@@ -99,6 +81,10 @@ const Cards = () => {
           ))}
         </ul>
       </div>
+
+      {data.map((item) => (
+        <Card card={item} key={item.title} />
+      ))}
     </div>
   );
 };

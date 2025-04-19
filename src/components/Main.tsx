@@ -19,13 +19,11 @@ const Main = () => {
     <div className="relative px-5 md:px-0 md:col-span-6 grid md:grid-cols-6 gap-x-5 gap-y-0">
       <div className="col-span-6 2xl:col-span-4">
         <h1 className="text-xl md:text-3xl font-bold text-[#003E75] py-4 md:py-16">
-          Артём Алимчев специалист
-          <br /> по восстановительным техникам
-          <br /> в Красноярске
+          Артём Алимчев специалист по восстановительным техникам в Красноярске
         </h1>
         <h3 className="text-lg md:text-2xl text-[#262626] pb-4 md:pb-16">
-          Устраняю причину боли, последствия <br />
-          травм, хронические боли в спине <br /> и конечностях за 2 сеанса
+          Устраняю причину боли, последствия травм, хронические боли в спине и
+          конечностях за 2 сеанса
         </h3>
       </div>
       <div className="md:col-start-5 md:col-span-2 pb-4 md:pb-0 md:hidden 2xl:flex md:items-end">

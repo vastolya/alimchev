@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -9,7 +11,15 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <main>{children}</main>
+        <main>
+          <div className="grid md:grid-cols-12 md:gap-x-5 md:gap-y-10">
+            <div className="md:col-start-4 md:col-span-6 md:gap-10 flex flex-col gap-5">
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </div>
+        </main>
         <Analytics />
       </body>
     </html>
