@@ -33,7 +33,7 @@ const Contacts = () => {
   };
 
   return (
-    <div className="md:col-span-6 grid md:grid-cols-6 gap-10">
+    <div className="px-5 md:px-0 md:col-span-6 grid md:grid-cols-6 gap-10">
       <div className="col-span-2 md:col-span-6 w-full h-[21.25rem]">
         <Map />
       </div>
