@@ -5,7 +5,7 @@ import Contacts from "@/components/Contacts";
 import CustomForm from "@/components/CustomForm";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export default async function CardDetailPage({ params }: Props) {
@@ -65,6 +65,6 @@ export default async function CardDetailPage({ params }: Props) {
 
 export function generateStaticParams() {
   return data.map((card) => ({
-    params: { slug: card.slug },
+    slug: card.slug,
   }));
 }
