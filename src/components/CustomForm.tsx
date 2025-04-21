@@ -54,7 +54,7 @@ const CustomForm = () => {
       className="px-5 md:px-0 relative md:col-span-6 grid md:grid-cols-6 gap-5 md:min-h-[21.25rem] w-full shadow-lg bg-black md:rounded-lg"
     >
       <Image
-        src="/img/contact-bg.jpg"
+        src="/img/contact-bg.png"
         alt="contact-bg"
         fill
         className="object-cover md:rounded-lg opacity-55"

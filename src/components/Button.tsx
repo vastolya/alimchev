@@ -16,7 +16,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className=" py-4 flex items-center justify-center gap-2 w-full rounded-lg bg-[#003E75] shadow-lg hover:bg-[#0058A0] active:bg-[#002A52]"
+      className=" py-4 flex items-center justify-center gap-2 md:gap-6 w-full rounded-lg bg-[#003E75] shadow-lg hover:bg-[#0058A0] active:bg-[#002A52]"
       onClick={onClick}
     >
       {iconPath && (

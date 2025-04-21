@@ -7,13 +7,16 @@ import Main from "@/components/Main";
 import MainPic from "../../public/img/main.png";
 import Reviews from "@/components/reviews/Reviews";
 import { Toaster } from "react-hot-toast";
+import { data } from "../../public/data";
+import Info from "@/components/Info";
 
 export default function Home() {
   return (
     <>
       <Toaster position="top-center" />
       <Main />
-      <Cards />
+      <Info />
+      <Cards cards={data} />
       <Healline />
       <FAQ />
       <Reviews />

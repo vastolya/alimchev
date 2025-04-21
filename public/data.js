@@ -1,6 +1,22 @@
+import card01 from "../public/img/card01.png";
+import card02 from "../public/img/card02.png";
+import card03 from "../public/img/card03.png";
+import card04 from "../public/img/card04.png";
+import card05 from "../public/img/card05.png";
+import card06 from "../public/img/card06.png";
+import card07 from "../public/img/card07.png";
+import card08 from "../public/img/card08.png";
+import card09 from "../public/img/card09.png";
+import card10 from "../public/img/card10.png";
+import card11 from "../public/img/card11.png";
+import card12 from "../public/img/card12.png";
+import card13 from "../public/img/card13.png";
+import card14 from "../public/img/card14.png";
+
 export const data = [
   {
     slug: "Hernia",
+    img: card01.src,
     title: "Грыжи",
     subtitle: "Лечение грыжи без операции в Красноярске",
     description:
@@ -16,6 +32,7 @@ export const data = [
   },
   {
     slug: "Protrusion",
+    img: card02.src,
     title: "Протрузии",
     subtitle: "Лечение протрузии в Красноярске",
     description:
@@ -30,7 +47,8 @@ export const data = [
     ],
   },
   {
-    slug: "Osteochondrosis ",
+    slug: "Osteochondrosis",
+    img: card03.src,
     title: "Остеохондроз",
     subtitle: "Лечение остеохондроза в Красноярске",
     description:
@@ -49,6 +67,7 @@ export const data = [
   },
   {
     slug: "PinchedNerve",
+    img: card04.src,
     title: "Защемление",
     subtitle: "Лечение защемления нерва в Красноярске",
     description:
@@ -65,6 +84,7 @@ export const data = [
   },
   {
     slug: "HandPain",
+    img: card05.src,
     title: "Боли в руках",
     subtitle: "Лечение суставов рук в Красноярске",
     description:
@@ -81,6 +101,7 @@ export const data = [
   },
   {
     slug: "LegPain",
+    img: card06.src,
     title: "Боли в ногах",
     subtitle: "Лечение боли в ногах и суставах в Красноярске",
     description:
@@ -95,12 +116,13 @@ export const data = [
     how_to_treat: [
       "Коленный сустав: коррекция положения, снятие отека, восстановление хрящевой ткани.",
       "Тазобедренные и голеностопные суставы: мануальные техники, улучшающие подвижность и кровоток.",
-      "Работу с триггерными точками: устраняем мышечные спазмы — частую причину острой боли.",
+      "Работа с триггерными точками: устраняем мышечные спазмы — частую причину острой боли.",
       "Восстановление суставов и мышц: индивидуальные программы ЛФК, физиотерапия и кинезиотейпирование.",
     ],
   },
   {
     slug: "MuscleSpasm",
+    img: card07.src,
     title: "Спазм",
     subtitle: "Лечение спазмов мышц и болевых синдромов в Красноярске",
     description:
@@ -120,6 +142,7 @@ export const data = [
   },
   {
     slug: "Cramps",
+    img: card08.src,
     title: "Судороги",
     subtitle: "Лечение судорог и восстановление связок в Красноярске",
     description:
@@ -139,6 +162,7 @@ export const data = [
   },
   {
     slug: "Sciatica",
+    img: card09.src,
     title: "Ишиас",
     subtitle: "Лечение ишиаса и невралгии в Красноярске",
     description:
@@ -157,6 +181,7 @@ export const data = [
   },
   {
     slug: "Dizziness",
+    img: card10.src,
     title: "Головокружения",
     subtitle: "Лечение головокружений, головной боли и мигрени в Красноярске",
     description:
@@ -175,6 +200,7 @@ export const data = [
   },
   {
     slug: "Constipation",
+    img: card11.src,
     title: "Запор",
     subtitle: "Лечение запоров, диареи и раздраженного кишечника в Красноярске",
     description:
@@ -193,6 +219,7 @@ export const data = [
   },
   {
     slug: "Pancreatitis",
+    img: card12.src,
     title: "Поджелудочная железа",
     subtitle: "Лечение заболеваний поджелудочной железы в Красноярске",
     description:
@@ -211,6 +238,7 @@ export const data = [
   },
   {
     slug: "BladderDisorders",
+    img: card13.src,
     title: "Мочевой пузырь",
     subtitle: "Лечение мочевого пузыря, цистита и недержания в Красноярске",
     description:
@@ -230,6 +258,7 @@ export const data = [
   },
   {
     slug: "Numbness",
+    img: card14.src,
     title: "Онемение",
     subtitle: "Лечение онемения конечностей в Красноярске.",
     description:

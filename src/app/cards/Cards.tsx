@@ -1,90 +1,75 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
-import { data } from "../../../public/data";
+import Image, { StaticImageData } from "next/image";
+import { AnimatePresence, motion } from "motion/react";
+import Button from "@/components/Button";
+import arrowDown from "../../../public/icons/arrowDown.svg";
+import arrowUp from "../../../public/icons/arrowUp.svg";
 
-const techniques = [
-  "Лечебный массаж шейно-воротниковой зоны, спины, конечностей",
-  "Лимфодренажный массаж",
-  "Точечный массаж шиацу",
-  "Мануальный массаж",
-  "Собственные техники",
-];
+type CardType = {
+  slug: string;
+  img: string | StaticImageData;
+  title: string;
+  subtitle: string;
+  description: string;
+  conditions: string[];
+  conditionTitle?: string;
+  how_to_treat: string[];
+};
 
-const Card = ({
-  card,
-}: {
-  card: {
-    slug: string;
-    title: string;
-    subtitle: string;
-    description: string;
-    conditions: string[];
-    conditionTitle?: string;
-    how_to_treat: string[];
-  };
-}) => {
+const Card = ({ card }: { card: CardType }) => {
   return (
     <Link
       href={`/cards/${card.slug}`}
-      className="min-h-[12rem] group relative col-span-2 p-6 bg-[#262626] rounded-lg shadow-lg overflow-hidden h-full flex flex-col"
+      className="min-h-[12rem] group relative col-span-3 p-6 bg-[#262626] rounded-lg shadow-lg overflow-hidden h-full flex flex-col"
     >
-      {/* <Image
-          src={card.img}
-          alt="Background"
-          fill
-          priority
-          sizes="auto"
-          className="object-cover group-hover:scale-110 opacity-40 rounded-lg transition-all duration-500 ease-in-out "
-        /> */}
+      <Image
+        src={card.img}
+        alt="Background"
+        fill
+        priority
+        sizes="auto"
+        className="object-cover group-hover:scale-110 opacity-40 rounded-lg transition-all duration-500 ease-in-out "
+      />
       <div className="relative z-10 h-full flex flex-col justify-between text-[#f0f8ff] [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]">
-        <p className="text-2xl leading-6 font-semibold">{card.title}</p>
-        <p className="text-base font-medium">{card.subtitle}</p>
+        <p className="text-lg leading-6 font-semibold">{card.title}</p>
+        <p className="text-sm font-medium">{card.subtitle}</p>
       </div>
     </Link>
   );
 };
 
-const Cards = () => {
+const Cards = ({ cards }: { cards: CardType[] }) => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleCards = showAll ? cards : cards?.slice(0, 6);
+
   return (
-    <div className="px-5 md:px-0 md:col-span-6 grid md:grid-cols-6 gap-5 items-stretch">
-      <div className="col-span-3 p-6 bg-white/80 backdrop-blur-md border border-white/50 rounded-2xl shadow-md h-full flex flex-col justify-between text-[#262626] space-y-4">
-        <h3 className="text-xl font-bold">Обо мне</h3>
-        <p className="text-base leading-relaxed">
-          Специалист по восстановительным техникам
-          <br /> с <span className="font-semibold">8-летним опытом</span>.
-        </p>
+    <div className="grid md:grid-cols-12 gap-4 px-5 md:px-0">
+      <AnimatePresence initial={false}>
+        {visibleCards?.map((card, index) => (
+          <motion.div
+            key={card.slug}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ delay: index * 0.03 }}
+            className="sm:col-span-6 lg:col-span-4"
+          >
+            <Card card={card} />
+          </motion.div>
+        ))}
+      </AnimatePresence>
 
-        <p className="text-base leading-relaxed">
-          Работаю со взрослыми, спортсменами и детьми от 6 лет.
-        </p>
-        <p className="text-base leading-relaxed">
-          Специализируюсь на{` `}
-          <span className="font-semibold">
-            выявлении и устранении причин боли
-          </span>
-          {` `}
-          через мануальную терапию.
-        </p>
-        <p className="text-base leading-relaxed">
-          <span className="font-semibold ">Результат за 1 – 2 сеанса</span>— без
-          длительных курсов и таблеток.
-        </p>
-      </div>
-
-      <div className="col-span-3 p-6 bg-white/80 backdrop-blur-md border border-white/50 rounded-2xl shadow-md h-full flex flex-col justify-between text-[#262626] space-y-4">
-        <h2 className="text-xl font-bold">
-          С помощью чего достигаю результата
-        </h2>
-        <ul className="list-disc list-inside space-y-1 text-base leading-relaxed">
-          {techniques.map((technique, index) => (
-            <li key={index}>{technique}</li>
-          ))}
-        </ul>
-      </div>
-
-      {data.map((item) => (
-        <Card card={item} key={item.title} />
-      ))}
+      {cards?.length > 6 && (
+        <div className="md:col-start-4 md:col-span-6 text-center mt-4">
+          <Button
+            title={showAll ? "Скрыть" : "Показать ещё"}
+            onClick={() => setShowAll(!showAll)}
+            iconPath={!showAll ? arrowDown : arrowUp}
+          />
+        </div>
+      )}
     </div>
   );
 };

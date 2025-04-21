@@ -17,7 +17,7 @@ const Main = () => {
 
   return (
     <div className="relative px-5 md:px-0 md:col-span-6 grid md:grid-cols-6 gap-x-5 gap-y-0">
-      <div className="col-span-6 2xl:col-span-4">
+      <div className="col-span-6 md:col-span-4">
         <h1 className="text-xl md:text-3xl font-bold text-[#003E75] py-4 md:py-16">
           Артём Алимчев специалист по восстановительным техникам в Красноярске
         </h1>
