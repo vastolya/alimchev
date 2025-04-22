@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.alimchev.ru
+
+# Sitemaps
+Sitemap: https://www.alimchev.ru/sitemap.xml
