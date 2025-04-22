@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { AnimatePresence, motion } from "motion/react";
@@ -40,14 +40,24 @@ const Card = ({ card }: { card: CardType }) => {
   );
 };
 
+const shuffleArray = (array: CardType[]) => {
+  return [...array].sort(() => Math.random() - 0.5);
+};
+
 const Cards = ({ cards }: { cards: CardType[] }) => {
   const [showAll, setShowAll] = useState(false);
-  const visibleCards = showAll ? cards : cards?.slice(0, 6);
+  const [shuffledCards, setShuffledCards] = useState<CardType[]>([]);
+
+  useEffect(() => {
+    setShuffledCards(shuffleArray(cards));
+  }, [cards]);
+
+  const visibleCards = showAll ? shuffledCards : shuffledCards.slice(0, 6);
 
   return (
     <div className="grid md:grid-cols-12 gap-4 px-5 md:px-0">
       <AnimatePresence initial={false}>
-        {visibleCards?.map((card, index) => (
+        {visibleCards.map((card, index) => (
           <motion.div
             key={card.slug}
             initial={{ opacity: 0, y: 10 }}
