@@ -60,7 +60,7 @@ const CustomForm = () => {
         className="object-cover md:rounded-lg opacity-55"
       />
 
-      <div className="md:col-span-4 md:col-start-2 flex flex-col gap-10 z-10 pt-10 px-6">
+      {/* <div className="md:col-span-4 md:col-start-2 flex flex-col gap-10 z-10 pt-10 px-6">
         <h1 className="text-2xl text-center text-[#F0F8FF] font-bold [text-shadow:0.25rem_0.25rem_0.25rem_rgba(0,0,0,0.15)]">
           Костоправ в Красноярске
         </h1>
@@ -88,7 +88,7 @@ const CustomForm = () => {
           Нажимая кнопку “Записаться”, я даю своё согласиена обработку
           персональных данных
         </p>
-      </div>
+      </div> */}
     </form>
   );
 };
