@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { createRef, RefObject, useState } from "react";
-import Button from "./Button";
+// import Button from "./Button";
 import toast from "react-hot-toast";
 
 export const formRef: RefObject<HTMLFormElement | null> = createRef();
@@ -9,11 +9,11 @@ export const formRef: RefObject<HTMLFormElement | null> = createRef();
 const CustomForm = () => {
   const [formData, setFormData] = useState({ email: "", message: "" });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
